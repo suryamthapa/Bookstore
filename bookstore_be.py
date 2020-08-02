@@ -15,37 +15,54 @@ It is quite similar to the mysql.connector.
 """
 import sqlite3
 
+
 # connecting to the database
 def connect():
     global cursor
     global conn
     conn = sqlite3.connect("bookdata.pd")
     cursor = conn.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY,title varchar(55),author text, year integer,isbn integer)")
+    cursor.execute(
+        "CREATE TABLE IF NOT EXISTS book (id INTEGER PRIMARY KEY,title varchar(55),author text, year integer,isbn integer)")
     # cursor.execute("CREATE TABLE IF NOT EXISTS book (id INTEGER AUTO_INCREMENT NOT NULL PRIMARY KEY,title varchar(55),author text, year integer,isbn integer)")
     # cursor.execute("DROP TABLE book")
     conn.commit()
-# Inserting datas 
-def insert(title,author,year,isbn):
-    cursor.execute("INSERT INTO book VALUES (NULL,?,?,?,?)",(title,author,year,isbn))
+
+
+# Inserting datas
+def insert(title, author, year, isbn):
+    cursor.execute("INSERT INTO book VALUES (NULL,?,?,?,?)",
+                   (title, author, year, isbn))
     conn.commit()
+
+
 # viewing the existing datas
 def view():
     cursor.execute("SELECT * FROM book")
     result = cursor.fetchall()
     return result
+
+
 # Searching the datas
-def search(title="",author="",year="",isbn=""):
-    cursor.execute("SELECT * FROM book where title=? or author=? or year=? or isbn=? ",(title,author,year,isbn))
+def search(title="", author="", year="", isbn=""):
+    cursor.execute("SELECT * FROM book where title=? or author=? or year=? or isbn=? ",
+                   (title, author, year, isbn))
     result = cursor.fetchall()
     return result
+
+
 # deleting the data
 def delete(id):
-    cursor.execute("DELETE FROM book where id=?",(id,))
+    cursor.execute("DELETE FROM book where id=?", (id,))
     conn.commit()
+
+
 # updating the data
-def update(id,title,author,year,isbn):
-    cursor.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?",(title,author,year,isbn,id))
+def update(id, title, author, year, isbn):
+    cursor.execute("UPDATE book SET title=?, author=?, year=?, isbn=? WHERE id=?",
+                   (title, author, year, isbn, id))
     conn.commit()
+
+
 # connecting to the database
 connect()
