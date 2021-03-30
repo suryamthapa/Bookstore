@@ -30,7 +30,7 @@ pexpect==4.7.0
 protobuf==3.6.1
 ptyprocess==0.6.0
 pycodestyle==2.6.0
-Pygments==2.5.2
+Pygments==2.7.4
 pyparsing==2.4.6
 pyserial==3.4
 PySide2==5.14.0
