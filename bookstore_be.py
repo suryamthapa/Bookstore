@@ -7,9 +7,9 @@ Learnings:
 --------------
 1. About sqlite module
 Basically, i was familier with sql databases shortly.
-And i knew about the servers/datebases and simple sql queries.
+And i knew about the servers/databases and simple sql queries.
 And i have worked with mysql.connector module.
-But i had no idea that we can have a database as a file(.pd), and it can be modified as per our wish.
+But i had no idea that we could have a database as a file(.pd), and it could be modified as per our wish.
 So, it was fun to work with sqlite3.
 It is quite similar to the mysql.connector.
 """
